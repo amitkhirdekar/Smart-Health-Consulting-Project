@@ -1,0 +1,95 @@
+<%- include("../partials/header.ejs") %>
+
+
+<body class="text-gray-500 bg-gray-900 body-font">
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-8xl text-3xl font-medium text-center title-font text-white mb-4">Welcome to SHCS</h1>
+                <p class="text-base xl:w-2/4 lg:w-3/4 mx-auto text-3xl leading-tight">SHC is an integrated software aims
+                    to maintain patient health records, real time scheduling of appointments and predicting disease
+                    using symptoms. </p>
+            </div>
+
+
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                <div class="ml-auto p-2 sm:w-1/3 w-full">
+                    <a href="/doctor/<%= doctor._id %>/edit">
+                        <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-red-400">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-red-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                <path d="M22 4L12 14.01l-3-3"></path>
+                              </svg>
+                            <span class="title-font font-medium text-white"> Edit My Profile </span>
+                        </div>
+                </div>
+                </a>
+
+
+
+
+                <div class="mr-auto p-2 sm:w-1/3 w-full">
+                    <a href="/doctor/<%= doctor._id %>">
+                        <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-red-400">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-red-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                <path d="M22 4L12 14.01l-3-3"></path>
+                              </svg>
+                            <span class="title-font font-medium text-white"> View My Profile </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <div class="lg:w-3/4 md:w-2/3 mx-auto">
+        <div class="flex -m-2"></div>
+        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+        </div>
+    </div>
+    </div>
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="text-center mb-2 mt-10">
+            <h1 class="sm:text-6xl text-3xl font-medium text-center title-font text-white mb-4">Welcome Dr. <%= doctor.name%> </h1>
+        </div>
+        <div class="container px-5 py-10 mx-auto">
+            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                <div
+                    class="sm:w-60 sm:h-60 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-indigo-400 bg-gray-800 flex-shrink-0">
+                    <img class="sm:w-60 sm:h-60 w-40 h-40 rounded-full" src="../images/appointmnets3.png"
+                        alt="Card image cap">
+                </div>
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                    <h2 class="text-white text-5xl title-font font-medium mb-2"> Appointments </h2>
+                    <p class="leading-relaxed text-base text-3xl"> View Appointmnets booked by patients. </p>
+                    <a class="mt-3 text-red-500 inline-flex items-center tracking-wider hover:red-900"
+                        href="/doctor/<%= currentUser._id %>/appointment">View My Appointments Now
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 pb-24 pt-2 mx-auto">
+          <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+            <svg fill="currentColor" class="inline-block w-20 h-20 text-gray-700 mb-8" viewBox="0 0 975.036 975.036">
+              <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+            </svg>
+            <p class="leading-relaxed text-3xl"> As a medical doctor, it is my duty to evaluate the situation with as much data as I can gather and as much expertise as I have and as much experience as I have to determine whether or not the wish of the patient is medically justified.</p>
+            <span class="inline-block h-2 w-20 rounded bg-red-600 mt-8 mb-6"></span>
+            <h2 class="text-white font-medium title-font tracking-wider text-4xl"> JACK KEVORKIAN </h2>
+            <p class="text-gray-600">The Doctor</p>
+          </div>
+        </div>
+      </section>
+
+</body>
+
+
+    <%- include("../partials/footer.ejs") %>

@@ -1,0 +1,30 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="container">
+    <h1>All Appointments </h1> </br></br>
+    <% if(appointments.length === 0){ %>
+        <span>No Appointments Booked </span>
+    <% } else { %>
+        <table style="width: 100%;">
+            <tr>
+                <th><h3>Patient Name</h3></th>
+                <th><h3>Doctor Name</h3></th>
+                <th><h3>Date</h3></th>
+                <th><h3>Reason</h3></th>
+            </tr>
+        <% appointments.forEach(function(appointment){ %>
+            </tr>
+                <td><%= appointment.patient.name %> &nbsp; &nbsp;</td> 
+                <td><%= appointment.doctor.name %></td>
+                <td><%= appointment.date %>&nbsp; &nbsp;</td>
+                <td><%= appointment.description %><br><br></td>
+            </tr>
+        <% }) %>
+        </table>
+    <% } %>
+    </br></br>
+    <a href="/admin">Back to Dashboard</a>
+
+</div>
+
+<%- include("../partials/footer.ejs") %>

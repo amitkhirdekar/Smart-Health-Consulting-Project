@@ -1,0 +1,81 @@
+<%- include ('../partials/header.ejs') %>
+
+<body class="text-gray-500 bg-gray-900 body-font">
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-8xl text-3xl font-medium text-center title-font text-white mb-4">Welcome to SHCS</h1>
+                <p class="text-base xl:w-2/4 lg:w-3/4 mx-auto text-3xl leading-tight">SHC is an integrated software aims
+                    to maintain patient health records, real time scheduling of appointments and predicting disease
+                    using symptoms. </p>
+            </div>
+
+
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                <div class="mx-auto p-2 sm:w-1/3 w-full">
+                    <a href="/patient">
+                        <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-indigo-600">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                <path d="M22 4L12 14.01l-3-3"></path>
+                            </svg>
+                            <span class="title-font font-medium text-white"> My Dashboard </span>
+                        </div>
+                </div>
+                </a>
+            </div>
+    </section>
+
+    <div class="lg:w-3/4 md:w-2/3 mx-auto">
+        <div class="flex -m-2"></div>
+        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+        </div>
+    </div>
+    </div>
+
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-800 sm:flex-row flex-col">
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div class="text-center mb-20">
+                        <h1 class="sm:text-5xl text-3xl font-medium text-center title-font text-white mb-4">
+                            Add Appointment </h1>
+                    </div>
+                    <form action="/patient/<%= patient_id %>/appointment" method="POST">
+                        <div class="relative form-group">
+                            <label for="name" class="leading-7 text-3xl text-gray-400"> Doctor Name : </label>
+                            <select  id="name" , name="name"
+                            class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-1 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                                <option value="" disabled selected>Select a Doctor</option>
+                                <% doctors.forEach(function(doctor){ %>
+                                <option value="<%= doctor.name %>"><%= doctor.name %></option>
+                                <% }); %>
+                            </select>
+                                
+                        </div>
+                        <div class="relative form-group">
+                            <label for="name" class="leading-7 text-3xl text-gray-400"> Select Time : </label>
+                            <input id="time" type="datetime-local" name="time"
+                                class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-3 px-3 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                        </div>
+                        <div class="relative form-group">
+                            <label for="name" class="leading-7 text-3xl text-gray-400"> Reason : </label>
+                            <input type="text" name="description" placeholder="Reason for Appointment" id="description" required=true
+                                class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-3 px-3 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                        </div>
+                        <div class="p-2 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-indigo-500 border-0 py-4 px-8 focus:outline-none hover:bg-indigo-600 rounded text-4xl">
+                                Book Appoinment </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<%- include('../partials/footer.ejs') %>

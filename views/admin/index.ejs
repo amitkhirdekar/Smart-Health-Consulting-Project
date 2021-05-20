@@ -1,0 +1,103 @@
+<%- include("../partials/header.ejs") %>
+
+<body class="text-gray-500 bg-gray-900 body-font">
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 pt-24 pb-2 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-8xl text-3xl font-medium text-center title-font text-white mb-4">Welcome to SHCS</h1>
+                <p class="text-base xl:w-2/4 lg:w-3/4 mx-auto text-3xl leading-tight">SHC is an integrated software aims
+                    to maintain patient health records, real time scheduling of appointments and predicting disease
+                    using symptoms. </p>
+            </div>
+    </section>
+
+    <div class="lg:w-3/4 md:w-2/3 mx-auto">
+        <div class="flex -m-2"></div>
+        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+        </div>
+    </div>
+    </div>
+
+    <div class="text-center mb-20 mt-10">
+        <h1 class="sm:text-6xl text-3xl font-medium text-center title-font text-white mb-4">Welcome Admin <%=currentUser.name %> </h1>
+        </div>
+
+        <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+            <div class="p-2 sm:w-1/3 w-full">
+                <a href="/doctor/new">
+                    <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                          </svg>
+                        <span class="title-font font-medium text-white"> Add New Doctor </span>
+                    </div>
+            </div>
+            </a>
+
+                <div class="p-2 sm:w-1/3 w-full">
+                    <a href="/admin/new">
+                        <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                <path d="M22 4L12 14.01l-3-3"></path>
+                              </svg>
+                            <span class="title-font font-medium text-white"> Add New Admin </span>
+                        </div>
+                </div>
+                </a>
+
+                    <div class="p-2 sm:w-1/3 w-full">
+                        <a href="/admin/admin">
+                            <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                    <path d="M22 4L12 14.01l-3-3"></path>
+                                  </svg>
+                                <span class="title-font font-medium text-white"> View All Admins </span>
+                            </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                    <div class="p-2 sm:w-1/3 w-full">
+                        <a href="/admin/patient">
+                            <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                    <path d="M22 4L12 14.01l-3-3"></path>
+                                  </svg>
+                                <span class="title-font font-medium text-white"> View All Patients </span>
+                            </div>
+                    </div>
+                    </a>
+        
+                        <div class="p-2 sm:w-1/3 w-full">
+                            <a href="/admin/doctor">
+                                <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                      </svg>
+                                    <span class="title-font font-medium text-white"> View All Doctors </span>
+                                </div>
+                        </div>
+                        </a>
+        
+                            <div class="p-2 sm:w-1/3 w-full">
+                                <a href="/admin/appointment">
+                                    <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-yellow-800">
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-600 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                            <path d="M22 4L12 14.01l-3-3"></path>
+                                          </svg>
+                                        <span class="title-font font-medium text-white"> View All Appointments of System </span>
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+    </body>
+
+<%- include("../partials/footer.ejs") %>

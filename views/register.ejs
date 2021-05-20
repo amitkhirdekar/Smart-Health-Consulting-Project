@@ -1,0 +1,82 @@
+<%- include("partials/header.ejs") %>
+
+<body class="text-gray-500 bg-gray-900 body-font">
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-6xl text-6xl font-medium title-font mb-4 text-white"> Sign UP </h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-3xl"> Register with us if you are a new user.
+                    If already have account, proceed to Login</p>
+            </div>
+            <form action="/register" method="POST">
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div class="flex flex-wrap -m-2">
+
+                        <div class="p-2 w-full">
+                            <div class="relative form-group">
+                                <label for="name" class="leading-7 text-3xl text-gray-400"> Name </label>
+                                <input type="text" name="name" placeholder="Name" required=true autocomplete="off" 
+                                    class="w-full bg-gray-800 rounded border border-gray-700 focus:border-yellow-700 text-base outline-none text-gray-100 py-3 px-3 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                            </div>
+                        </div>
+
+                        <div class="p-2 w-1/2">
+                            <div class="relative form-group">
+                                <label for="email" class="leading-7 text-3xl text-gray-400"> Username </label>
+                                <input type="text" name="email" placeholder="email ID" required=true autocomplete="off"
+                                    class="w-full bg-gray-800 rounded border border-gray-700 focus:border-yellow-700 text-base outline-none text-gray-100 py-3 px-3 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                            </div>
+                        </div>
+                        <div class="p-2 w-1/2">
+                            <div class="relative form-group">
+                                <label for="password" class="leading-7 text-3xl text-gray-400"> Password </label>
+                                <input type="password" name="password" placeholder="Password" required=true
+                                    class="w-full bg-gray-800 rounded border border-gray-700 focus:border-yellow-700 text-base outline-none text-gray-100 py-3 px-3 leading-8 transition-colors duration-200 ease-in-out text-3xl form-control">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full form-group">
+                            <button
+                                class="flex mx-auto text-white bg-yellow-600 border-0 py-4 px-8 focus:outline-none hover:bg-yellow-700 rounded text-4xl">
+                                Submit </button>
+                        </div>
+                        <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
+                            <a class="text-yellow-700" href="change_pass"> Change Password </a><br>
+                            <a class="text-yellow-700" href="/"> Go Back </a>
+                            <p class="leading-normal my-10">PCCoE
+                                <br>Nigdi, Pune
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+
+<!-- <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Sign UP !!</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/register" method="POST">
+				<div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name" required=true>
+                </div>
+				<div class="form-group">
+                    <input class="form-control" type="text" name="email" placeholder="email ID" required=true>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password" required=true>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/">Go Back</a>
+        </div>
+    </div>
+</div> -->
+
+<%- include("partials/footer.ejs") %>

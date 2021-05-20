@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SHCS</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <link rel="stylesheet" href="/build/tailwind.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+    
+    <div id="landing-header">
+         <h1 style="color:gold;">Smart Health Consultation System</h1>
+         <% if (currentUser){ %>
+            <a href="/index" class="btn btn-lg btn-warning">Dashboard</a>
+        <% } else { %>
+        <a href="/login" class="btn btn-lg text-white bg-yellow-600 hover:bg-yellow-700"> Login </a>
+        <a href="/register" class="btn btn-lg text-white bg-yellow-600 hover:bg-yellow-700"> Register </a>
+        <% } %>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include("partials/footer") %>

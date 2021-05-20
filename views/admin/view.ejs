@@ -1,0 +1,20 @@
+<%- include("../partials/header.ejs") %>
+    <div class="container">
+        <h1><%= heading %></h1>
+        <table style="width:100%">
+            <tr>
+                <th><h3>Name</h3></th>
+                <th><h3>Email Address</h3></th>
+            </tr>
+            <% users.forEach(function(user){ %>
+                <tr>
+                    <td style="height: 40px;"><%= user.name %></td>
+                    <td style="height: 40px;"><%= user.email %></td>
+                </tr>
+        <% }) %>
+        </table>
+    <br>
+        <a href="/admin">Back to Dashboard </a>
+    </div>
+
+<%- include("../partials/footer.ejs") %>

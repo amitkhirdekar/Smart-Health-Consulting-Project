@@ -1,0 +1,229 @@
+<%- include("../partials/header.ejs") %>
+
+<body class="text-gray-500 bg-gray-900 body-font">
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-8xl text-3xl font-medium text-center title-font text-white mb-4">Welcome to SHCS</h1>
+                <p class="text-base xl:w-2/4 lg:w-3/4 mx-auto text-3xl leading-tight">SHC is an integrated software aims
+                    to maintain patient health records, real time scheduling of appointments and predicting disease
+                    using symptoms. </p>
+            </div>
+                <div class="mx-auto p-2 sm:w-1/3 w-full">
+                    <a href="/patient">
+                        <div class="bg-gray-800 rounded flex p-4 h-full items-center hover:bg-indigo-600">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                <path d="M22 4L12 14.01l-3-3"></path>
+                            </svg>
+                            <span class="title-font font-medium text-white"> My Dashboard </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <div class="lg:w-3/4 md:w-2/3 mx-auto">
+        <div class="flex -m-2"></div>
+        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+        </div>
+    </div>
+    </div>
+
+    <section class="text-gray-500 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
+                <h1 class="sm:text-7xl text-4xl font-medium text-center title-font text-white mb-4"> Appointments </h1>
+            </div>
+            <% if(prevAppointment.length === 0  && presAppointment.length === 0 && futureAppointment.length === 0){ %>
+            <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+                <h1 class="flex-grow sm:pr-16 text-4xl font-medium title-font text-white"> No Appointments Booked </h1>
+                <a href="/patient">
+                    <button
+                        class="flex-shrink-0 text-white bg-indigo-500 border-0 py-4 px-10 focus:outline-none hover:bg-indigo-600 rounded text-2xl mt-10 sm:mt-0">
+                        Go to My Dashboard </button>
+                </a>
+            </div>
+
+            <% } else {   %>
+
+            <% if(presAppointment.length === 0){ %>
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4"> No Ongoing
+                        Appointments </h1>
+                </div>
+                <div class="lg:w-3/4 md:w-2/3 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-2 border-t border-gray-800 text-center -mb-2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <% } else { %>
+
+
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4"> Ongoing
+                        Appointments </h1>
+                </div>
+
+                <% presAppointment.forEach(function(appointment){ %>
+                <div class="container px-5 py-5 mx-auto flex flex-wrap">
+                    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+                        <h2 class="sm:text-4xl text-2xl text-gray-300 font-medium title-font mb-2 md:w-2/5"> Appointment
+                            with Dr.
+                            <%= appointment.doctor.name %> </h2>
+                        <div class="md:w-3/5 md:pl-6">
+                            <p class="leading-relaxed text-3xl">Date: <%= appointment.date %> <br>
+                                Reason: <%= appointment.description %></p>
+                            <div class="flex md:mt-4 mt-6">
+                                <a
+                                    href="/chat.html?room=<%= appointment._id %>&username=<%= appointment.patient.name %>">
+                                    <button
+                                        class="inline-flex text-white text-3xl bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded">
+                                        Chat </button></a>
+                                <a class="ml-auto"
+                                    href="/patient/<%= appointment.patient._id %>/appointment/<%= appointment._id %>/edit ">
+                                    <button
+                                        class="inline-flex text-white text-3xl bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-600 rounded ml-auto">
+                                        Update </button></a>
+                                <form
+                                    action="/patient/<%= appointment.patient._id %>/appointment/<%= appointment._id %>?_method=DELETE"
+                                    method="POST">
+                                    <button
+                                        class="inline-flex text-white text-3xl bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded ml-10">
+                                        Delete </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) ; %>
+                <div class="lg:w-3/4 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center -mb-2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <% } %>
+
+            <% if(futureAppointment.length === 0){ %>
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4 mt-12"> No
+                        Upcoming
+                        Appointments </h1>
+                </div>
+                <div class="lg:w-3/4 md:w-2/3 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-2 border-t border-gray-800 text-center">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <% } else { %>
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4 mt-12"> Upcoming
+                        Appointments </h1>
+                </div>
+
+                <% futureAppointment.forEach(function(appointment){ %>
+                <div class="container px-5 py-5 mx-auto flex flex-wrap">
+                    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+                        <h2 class="sm:text-4xl text-2xl text-gray-300 font-medium title-font mb-2 md:w-2/5"> Appointment
+                            with Dr.
+                            <%= appointment.doctor.name %> </h2>
+                        <div class="md:w-3/5 md:pl-6">
+                            <p class="leading-relaxed text-3xl">Date: <%= appointment.date %> <br>
+                                Reason: <%= appointment.description %></p>
+                            <div class="flex md:mt-4 mt-6">
+                                <a class="ml-auto"
+                                    href="/patient/<%= appointment.patient._id %>/appointment/<%= appointment._id %>/edit ">
+                                    <button
+                                        class="inline-flex text-white text-3xl bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-600 rounded ml-auto">
+                                        Update </button></a>
+                                <form
+                                    action="/patient/<%= appointment.patient._id %>/appointment/<%= appointment._id %>?_method=DELETE"
+                                    method="POST">
+                                    <button
+                                        class="inline-flex text-white text-3xl bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded ml-10">
+                                        Delete </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) ; %>
+                <div class="lg:w-3/4 md:w-2/3 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <% } %>
+
+            <% if(prevAppointment.length === 0){ %>
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4 mt-12"> No
+                        Previous
+                        Appointments </h1>
+                </div>
+                <div class="lg:w-3/4 md:w-2/3 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <% } else { %>
+            <section class="text-gray-500 bg-gray-900 body-font">
+                <div class="text-center mb-2">
+                    <h1 class="sm:text-5xl text-4xl font-medium text-center title-font text-white mb-4 mt-12"> Previous
+                        Appointments </h1>
+                </div>
+
+                <% prevAppointment.forEach(function(appointment){ %>
+                <div class="container px-5 py-5 mx-auto flex flex-wrap">
+                    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+                        <h2 class="sm:text-4xl text-2xl text-gray-300 font-medium title-font mb-2 md:w-2/5"> Appointment
+                            with Dr.
+                            <%= appointment.doctor.name %> </h2>
+                        <div class="md:w-3/5 md:pl-6">
+                            <p class="leading-relaxed text-3xl">Date: <%= appointment.date %> <br>
+                                Reason: <%= appointment.description %></p>
+
+                        </div>
+                    </div>
+                </div>
+                <% }) ; %>
+                <div class="lg:w-3/4 md:w-2/3 mx-auto">
+                    <div class="flex mt-2">
+                        <div class="p-2 w-full pt-0 mt-0 border-t border-gray-800 text-center">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <% } %>
+
+            <% } %>
+
+        </div>
+    </section>
+
+    <%- include("../partials/footer.ejs") %>
