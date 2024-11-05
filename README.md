@@ -5,6 +5,15 @@ This is a web based application which helps in scheduling appointments, reschedu
 ## Screenshots
 Currently unavailable. Coming Soon...
 
+## Database Setup
+
+This app uses mongoDB database and you will need a database ready in order to run this app. 
+One way is to create a free account on mongoDB Atlas followed by creating M0 cluster for this app.
+
+Follow process to create cluster in Atlas. When prompted which creating a user, use `smart-health` username and copy the password. Once the cluster is up and running, create collection `Smart_Health` in the cluster.
+
+Replace the `<dbPassword>` text in [config/keys.js](/config/keys.js) with the password copied earlier(if password contains @, replace it with %40).
+
 ## Installation
 
 This app runs on web. 
@@ -41,6 +50,8 @@ For patients, UI will be similar to this:
 <img src="https://github.com/amitkhirdekar/Smart-Health-Consulting-Project/blob/main/Screenshots/patientDashboard.png?raw=true" width="90%" alt="Patient UI"> </img>
 
 Now you are free to search Doctors, Book Appointments, Reschedule Appointments, Cancel Appointments, Update Medical Records, Consult with doctor and many more things. 
+
+You should create an admin user in DB first that can in-turn add doctors to the application.
 
 ## Support
 For any other help, you can contact:

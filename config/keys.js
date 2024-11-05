@@ -1,4 +1,4 @@
-dbPassword = 'mongodb+srv://smartHealth:teproject123@cluster0.z4jqr.mongodb.net/Smart_Health?retryWrites=true&w=majority';
+dbPassword = 'mongodb+srv://smart-health:<dbPassword>@smart-health.ztwhw.mongodb.net/Smart_Health?retryWrites=true&w=majority&appName=smart-health';
 
 
 module.exports = {
